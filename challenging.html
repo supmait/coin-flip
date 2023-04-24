@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pujan's Coin Flip Game</title>
+</head>
+<body>
+  <p>
+    Coin Flip Game:
+  </p>
+  <p>
+    Predict what the Computer is going to pick. If your pick matches the Computer's pick, you win; else you lose.
+  </p>
+  <button onclick="
+    playGame('head')
+    ">head</button>
+  <button onclick="
+    playGame('tail')
+    ">tail</button>
+  <script> 
+    function playGame(playerMove){
+      const computerMove = pickComputerMove();
+      let result = '';
+      if(playerMove==='head'){
+        if(computerMove==='head'){
+          result='You win';
+        }else if (computerMove==='tail'){
+          result='You lose';
+      }
+      }else if(playerMove==='tail'){
+        if(computerMove==='head'){
+          result='You lose';
+        }else if (computerMove==='tail'){
+          result='You win';}
+      }
+      alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}.`);
+
+    }
+
+    function pickComputerMove(){
+      const randomNumber = Math.random();
+      let computerMove = '';
+    if (randomNumber>=0 && randomNumber<=1/2){
+      computerMove='head';
+    }
+    else if(randomNumber>1/2 && randomNumber<=1){
+      computerMove='tail';
+    }
+      return computerMove;
+    }
+    
+  </script>
+</body>
+</html>
